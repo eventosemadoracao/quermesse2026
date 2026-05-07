@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quermesse 2026 — Cronograma Geral</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul:        #1B4F7A;
+    --azul-medio:  #2E75B6;
+    --azul-claro:  #D6E8F7;
+    --verde:       #1E6B3A;
+    --verde-claro: #E2F2E8;
+    --vermelho:    #C0392B;
+    --amarelo:     #FFF3CD;
+    --amarelo-borda: #F0C040;
+    --cinza-escuro:#333333;
+    --cinza-medio: #666666;
+    --cinza-claro: #F5F5F5;
+    --borda:       #DDE4EC;
+    --branco:      #FFFFFF;
+    --fonte-titulo: 'Lora', Georgia, serif;
+    --fonte-corpo:  'Source Sans 3', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--fonte-corpo);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--cinza-escuro);
+    background: #EEF2F6;
+  }
+
+  .pagina {
+    max-width: 860px;
+    margin: 40px auto;
+    background: var(--branco);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  /* ── CABEÇALHO ── */
+  .cabecalho {
+    background: var(--azul);
+    color: var(--branco);
+    padding: 40px 48px 32px;
+    border-bottom: 4px solid var(--azul-medio);
+  }
+  .cabecalho h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+  .cabecalho .subtitulo {
+    font-size: 15px;
+    opacity: 0.85;
+    margin-bottom: 4px;
+  }
+  .cabecalho .lideranca {
+    font-size: 13px;
+    opacity: 0.65;
+    font-style: italic;
+  }
+
+  /* ── LINHA DO TEMPO ── */
+  .linha-do-tempo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--azul-claro);
+    border-bottom: 1px solid var(--borda);
+  }
+  .fase {
+    padding: 18px 20px;
+    border-right: 1px solid rgba(30,79,122,0.15);
+    text-align: center;
+  }
+  .fase:last-child { border-right: none; }
+  .fase-nome {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--azul);
+    margin-bottom: 4px;
+  }
+  .fase-data {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--azul);
+  }
+
+  /* ── CONTEÚDO PRINCIPAL ── */
+  .conteudo { padding: 0 48px 48px; }
+
+  /* ── SEÇÃO ── */
+  .secao { margin-top: 40px; }
+  .secao-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--azul);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--azul-medio);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .secao-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: var(--azul);
+    color: var(--branco);
+    border-radius: 50%;
+    font-family: var(--fonte-corpo);
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* ── TAREFA ── */
+  .tarefa {
+    border: 1px solid var(--borda);
+    border-radius: 7px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: var(--branco);
+  }
+  .tarefa:last-child { margin-bottom: 0; }
+  .tarefa-nome {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cinza-escuro);
+    margin-bottom: 5px;
+  }
+  .tarefa-obs {
+    font-size: 13px;
+    color: var(--cinza-medio);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .tarefa-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 6px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-prazo {
+    background: #EAF2FF;
+    color: var(--azul-medio);
+    border: 1px solid #B8D4F0;
+  }
+  .badge-resp {
+    background: var(--cinza-claro);
+    color: #444;
+    border: 1px solid #DDD;
+  }
+  .badge-ok {
+    background: var(--verde-claro);
+    color: var(--verde);
+    border: 1px solid #B2DEC0;
+  }
+  .badge-aberto {
+    background: #FEF3F2;
+    color: var(--vermelho);
+    border: 1px solid #F5C6C2;
+  }
+
+  /* Tarefa concluída */
+  .tarefa.concluida {
+    background: var(--verde-claro);
+    border-color: #B2DEC0;
+  }
+  .tarefa.concluida .tarefa-nome { color: var(--verde); }
+
+  /* Observação especial */
+  .tarefa .obs-especial {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--amarelo);
+    border-left: 3px solid var(--amarelo-borda);
+    border-radius: 4px;
+    font-size: 12.5px;
+    color: #7A6000;
+    line-height: 1.5;
+  }
+
+  /* ── STATUS GERAL ── */
+  .status-grupo { margin-bottom: 14px; }
+  .status-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .status-label.ok    { color: var(--verde); }
+  .status-label.anda  { color: #B06D00; }
+  .status-label.pend  { color: var(--vermelho); }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot.ok   { background: var(--verde); }
+  .dot.anda { background: #E9A020; }
+  .dot.pend { background: var(--vermelho); }
+  .status-lista {
+    list-style: none;
+    padding: 0;
+  }
+  .status-lista li {
+    font-size: 14px;
+    color: var(--cinza-escuro);
+    padding: 5px 0 5px 16px;
+    border-bottom: 1px solid var(--borda);
+    position: relative;
+  }
+  .status-lista li:last-child { border-bottom: none; }
+  .status-lista li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--borda);
+  }
+
+  /* ── MENSAGEM FINAL ── */
+  .mensagem-final {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: var(--azul-claro);
+    border-radius: 8px;
+    border-left: 4px solid var(--azul-medio);
+    text-align: center;
+  }
+  .mensagem-final p {
+    font-family: var(--fonte-titulo);
+    font-size: 15px;
+    color: var(--azul);
+    line-height: 1.7;
+  }
+  .mensagem-final strong {
+    font-weight: 600;
+  }
+  .mensagem-final .assinatura {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--cinza-medio);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .pagina { margin: 0; border-radius: 0; }
+    .cabecalho, .conteudo { padding-left: 20px; padding-right: 20px; }
+    .linha-do-tempo { grid-template-columns: repeat(2, 1fr); }
+    .fase { border-bottom: 1px solid rgba(30,79,122,0.15); }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <!-- CABEÇALHO -->
+  <div class="cabecalho">
+    <h1>🎉 Quermesse 2026</h1>
+    <p class="subtitulo">Cronograma Geral — Ministério de Eventos</p>
+    <p class="lideranca">Liderança: Kenneth e Syrio</p>
+  </div>
+
+  <!-- LINHA DO TEMPO -->
+  <div class="linha-do-tempo">
+    <div class="fase">
+      <div class="fase-nome">Planejamento</div>
+      <div class="fase-data">até 20/05</div>
+    </div>
+    <div class="fase">
+      <div class="fase-nome">Infraestrutura</div>
+      <div class="fase-data">até 31/05</div>
+    </div>
+    <div class="fase">
+      <div class="fase-nome">Semana do Evento</div>
+      <div class="fase-data">11 a 14/06</div>
+    </div>
+    <div class="fase">
+      <div class="fase-nome">Pós-Evento</div>
+      <div class="fase-data">14/06 (noite)</div>
+    </div>
+  </div>
+
+  <div class="conteudo">
+
+    <!-- 1. PLANEJAMENTO -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="secao-num">1</span> Planejamento</h2>
+
+      <div class="tarefa concluida">
+        <div class="tarefa-nome">Divisão de barracas por ministério</div>
+        <div class="tarefa-meta"><span class="badge badge-ok">✔ Concluído</span></div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Valores dos cartões e cortesias</div>
+        <div class="tarefa-obs">Definir valor de carregamento para casos especiais.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 20/05/2026</span>
+          <span class="badge badge-resp">👤 Monique</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Orçamento geral do evento</div>
+        <div class="tarefa-obs">Energia, segurança, bombeiros, gerador extra etc.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 20/05/2026</span>
+          <span class="badge badge-resp">👤 Gabi, Dessuan e Júlio</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Inventário de materiais disponíveis</div>
+        <div class="tarefa-obs">Levantar o que pode ser reaproveitado antes de orçar ou comprar novos itens.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 20/05/2026</span>
+          <span class="badge badge-resp">👤 Adriana e Claudia</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Layout geral da Quermesse</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 20/05/2026</span>
+          <span class="badge badge-resp">👤 Adele, Lívia e Ana Carolina</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. INFRAESTRUTURA -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="secao-num">2</span> Infraestrutura</h2>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Drenagem e escoamento de água da chuva</div>
+        <div class="tarefa-obs">Testar no Rincão. Pedir apoio ao responsável pelas obras do instituto (Henrique) para direcionar os funcionários e garantir o escoamento adequado.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 22/05/2026</span>
+          <span class="badge badge-resp">👤 Duarte e Venezo</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Dimensionamento e padronização das barracas</div>
+        <div class="tarefa-obs">Definir quantidade de pallets por barraca e fazer orçamento. Sugestão: rateio dividido entre os ministérios.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 20/05/2026</span>
+          <span class="badge badge-resp">👤 Carlisson e Duarte</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Teste de iluminação + reforço de LED</div>
+        <div class="tarefa-obs">Cobrir barracas e área externa.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 29/05/2026</span>
+          <span class="badge badge-resp">👤 João Felix, Venezo Lisarb e Min. Som</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Jogo de luzes</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 29/05/2026</span>
+          <span class="badge badge-resp">👤 Joanderson e Anselmo</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Painel de LED e telão — jogo do Brasil (Copa)</div>
+        <div class="tarefa-obs">Pode permanecer os dois dias e funcionar também como elemento de decoração.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 22/05/2026</span>
+          <span class="badge badge-resp">👤 Ademir</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Palco/tablado decorado + bingo com premiação ágil</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 31/05/2026</span>
+          <span class="badge badge-resp">👤 Duarte e Claudinha</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">3 tendas para a área entre o Rincão</div>
+        <div class="tarefa-obs">Elaborar ofício solicitando ao poder público.</div>
+        <div class="obs-especial">OBS.: 2 tendas da SM — solicitar orçamento de reparo (estrutura e lona). Falar com Henrique para confirmar viabilidade.</div>
+        <div class="tarefa-meta" style="margin-top:10px;">
+          <span class="badge badge-prazo">📅 31/05/2026</span>
+          <span class="badge badge-resp">👤 Carlisson e Freddy</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Portal no Rincão</div>
+        <div class="tarefa-obs">Decoração da entrada e elementos da vila. Pedir suporte a Roberta com elementos do Sereco.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 22/05/2026</span>
+          <span class="badge badge-resp">👤 Claudia, Cris e Edilma</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Bandeiras (decoração)</div>
+        <div class="tarefa-obs">Contato com Roberta para providenciar bandeiras e elementos de decoração com o Sereco.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 22/05/2026</span>
+          <span class="badge badge-resp">👤 Roberta Gomes e Iara</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Decoração junina do pavilhão — liderança de execução</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 Iniciar 1 semana antes do evento</span>
+          <span class="badge badge-resp">👤 Roberta Gomes e Paula Morais</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Doação de banheiro químico</div>
+        <div class="tarefa-obs">Buscar parceria ou patrocínio para viabilizar a doação.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 29/05/2026</span>
+          <span class="badge badge-resp">👤 Edine e Lívia</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. OPERACIONAL -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="secao-num">3</span> Operacional</h2>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Cardápio coletivo e quantidades por barraca</div>
+        <div class="tarefa-obs">Manter o foco em comidas típicas com valores definidos (deu certo no ano passado).</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 22/05/2026</span>
+          <span class="badge badge-resp">👤 Coordenadores de Ministérios</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Orientações sobre o sistema de cartões</div>
+        <div class="tarefa-obs">Alinhar o funcionamento com todos os ministérios.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 29/05/2026</span>
+          <span class="badge badge-resp">👤 Tiago Bonsai e Beatriz</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Treinamento do sistema (cartões e caixas)</div>
+        <div class="tarefa-obs">Treinar todos os operadores antes do evento para evitar filas e gargalos.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 05/06/2026</span>
+          <span class="badge badge-resp">👤 Tiago Bonsai e Beatriz</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Segurança no estacionamento</div>
+        <div class="tarefa-obs">Definir equipe ou empresa para orientar veículos e garantir a segurança.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 22/05/2026</span>
+          <span class="badge badge-resp">👤 Glauco e Tibério</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Ideias de brincadeiras</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 22/05/2026</span>
+          <span class="badge badge-resp">👤 Hizamila e Lívia</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. MONGA -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="secao-num">4</span> Monga</h2>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Preparar e executar o espaço e a técnica de apresentação</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-prazo">📅 05/06/2026</span>
+          <span class="badge badge-resp">👤 Ademir e Joanderson</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Sessões separadas por faixa etária</div>
+        <div class="tarefa-obs">Organizar horários distintos para crianças e adultos.</div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Upgrade — "Ala Ursa"</div>
+        <div class="tarefa-obs">Incorporar elementos da tradição da Ala Ursa para enriquecer a apresentação.</div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Itens para interação com o público</div>
+        <div class="tarefa-obs">Cobra, saco plástico e outros elementos para animar a experiência.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-resp">👤 Ademir e Waleska</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. DECORAÇÃO -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="secao-num">5</span> Decoração</h2>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Decoração do palco</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-resp">👤 Helida e Claudinha</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Decoração do pavilhão</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-resp">👤 Roberta Gomes e Paula Morais</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Decoração da Casa — corredor até o Rincão</div>
+        <div class="tarefa-obs">Proposta: estilo vila junina ou semelhante.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-resp">👤 Adelle, Ana Karla, Cláudia, Cris e Edilma</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. SEMANA DO EVENTO -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="secao-num">6</span> Semana do Evento</h2>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Quinta-feira, 11/06 — Montagem deve estar concluída</div>
+        <div class="tarefa-obs">Garantir a montagem de tendas e barracas durante a semana. <strong>Não deixar para o dia do evento!</strong></div>
+        <div class="tarefa-meta">
+          <span class="badge badge-resp">👤 Logística/Eventos — Joanderson e Demerson</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Sexta-feira, 12/06 — Finalização e testes</div>
+        <div class="tarefa-obs">Decoração, teste de som e luzes, carregamento dos freezers por ministério.</div>
+        <div class="tarefa-meta">
+          <span class="badge badge-resp">👤 Logística/Eventos — Carlinhos Fernandes e João Felix</span>
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Sábado e Domingo, 13 e 14/06 — Evento</div>
+        <div class="tarefa-obs">Caixas em funcionamento 30 minutos antes do término da missa, para evitar filas.</div>
+      </div>
+    </div>
+
+    <!-- 7. PÓS-EVENTO -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="secao-num">7</span> Pós-Evento</h2>
+
+      <div class="tarefa">
+        <div class="tarefa-nome">Domingo à noite, 14/06 — Desmontagem e limpeza geral</div>
+        <div class="tarefa-obs">Presença obrigatória de todos. Incluir devolução de materiais.</div>
+      </div>
+    </div>
+
+    <!-- 8. STATUS GERAL -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="secao-num">8</span> Status Geral</h2>
+
+      <div class="status-grupo">
+        <div class="status-label ok"><span class="dot ok"></span> Confirmados</div>
+        <ul class="status-lista">
+          <li>Música — sanfoneiro</li>
+          <li>Compras — ZAC</li>
+        </ul>
+      </div>
+
+      <div class="status-grupo">
+        <div class="status-label anda"><span class="dot anda"></span> Em andamento</div>
+        <ul class="status-lista">
+          <li>Bombeiros — contato feito, ainda não fechado.</li>
+          <li>2 tendas da SM — em reparo (estrutura e lona); previsão de entrega até o São João.</li>
+        </ul>
+      </div>
+
+      <div class="status-grupo">
+        <div class="status-label pend"><span class="dot pend"></span> Pendentes de definição</div>
+        <ul class="status-lista">
+          <li>Som — responsável a definir.</li>
+          <li>Iluminação (coordenação geral) — responsável a definir.</li>
+          <li>Aluguel de barracas padronizadas — avaliar custo.</li>
+          <li>Monga / Barraca Eventos — a confirmar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MENSAGEM FINAL -->
+    <div class="mensagem-final">
+      <p><em>Cada tarefa é uma peça do nosso quebra-cabeça.</em><br>
+      <strong>Quando todos fazem a sua parte, o resultado glorifica a Deus!</strong></p>
+      <p class="assinatura">Deus abençoe — Vamos juntos! 🙏</p>
+    </div>
+
+  </div><!-- /conteudo -->
+</div><!-- /pagina -->
+</body>
+</html>
