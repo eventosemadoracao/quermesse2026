@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quermesse 2026 — Informe Geral</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul:        #1B4F7A;
+    --azul-medio:  #2E75B6;
+    --azul-claro:  #D6E8F7;
+    --verde:       #1E6B3A;
+    --verde-claro: #E2F2E8;
+    --vermelho:    #C0392B;
+    --amarelo:     #FFF3CD;
+    --amarelo-borda: #F0C040;
+    --cinza-escuro:#333333;
+    --cinza-medio: #666666;
+    --cinza-claro: #F5F5F5;
+    --borda:       #DDE4EC;
+    --branco:      #FFFFFF;
+    --fonte-titulo: 'Lora', Georgia, serif;
+    --fonte-corpo:  'Source Sans 3', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--fonte-corpo);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--cinza-escuro);
+    background: #EEF2F6;
+  }
+
+  .pagina {
+    max-width: 860px;
+    margin: 40px auto;
+    background: var(--branco);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+
+  /* ── CABEÇALHO ── */
+  .cabecalho {
+    background: var(--azul);
+    color: var(--branco);
+    padding: 40px 48px 32px;
+    border-bottom: 4px solid var(--azul-medio);
+  }
+  .cabecalho h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .cabecalho .subtitulo {
+    font-size: 15px;
+    opacity: 0.85;
+    margin-bottom: 4px;
+  }
+  .cabecalho .intro {
+    font-size: 14px;
+    opacity: 0.70;
+    margin-top: 10px;
+    line-height: 1.6;
+    max-width: 620px;
+  }
+
+  /* ── DESTAQUE TOPO ── */
+  .destaque-topo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--azul-claro);
+    border-bottom: 1px solid var(--borda);
+  }
+  .destaque-item {
+    padding: 18px 20px;
+    border-right: 1px solid rgba(30,79,122,0.15);
+    text-align: center;
+  }
+  .destaque-item:last-child { border-right: none; }
+  .destaque-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--azul);
+    margin-bottom: 4px;
+  }
+  .destaque-valor {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--azul);
+  }
+
+  /* ── CONTEÚDO ── */
+  .conteudo { padding: 0 48px 48px; }
+
+  /* ── SEÇÃO ── */
+  .secao { margin-top: 36px; }
+  .secao-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--azul);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--azul-medio);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .icone {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* ── CARD DE ITEM ── */
+  .card {
+    border: 1px solid var(--borda);
+    border-radius: 7px;
+    padding: 13px 17px;
+    margin-bottom: 9px;
+    background: var(--branco);
+    font-size: 14px;
+    color: var(--cinza-escuro);
+    line-height: 1.6;
+  }
+  .card:last-child { margin-bottom: 0; }
+  .card strong {
+    color: var(--azul);
+  }
+  .card .detalhe {
+    font-size: 13px;
+    color: var(--cinza-medio);
+    margin-top: 3px;
+  }
+
+  /* ── LISTA SIMPLES ── */
+  .lista {
+    list-style: none;
+    padding: 0;
+  }
+  .lista li {
+    font-size: 14px;
+    color: var(--cinza-escuro);
+    padding: 7px 0 7px 20px;
+    border-bottom: 1px solid var(--borda);
+    position: relative;
+    line-height: 1.55;
+  }
+  .lista li:last-child { border-bottom: none; }
+  .lista li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--azul-medio);
+    opacity: 0.5;
+  }
+
+  /* ── BADGE PRAZO ── */
+  .badge-prazo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #EAF2FF;
+    color: var(--azul-medio);
+    border: 1px solid #B8D4F0;
+    margin-top: 6px;
+  }
+
+  /* ── TABELA BARRACAS ── */
+  .tabela-barracas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4px;
+    font-size: 14px;
+  }
+  .tabela-barracas thead tr {
+    background: var(--azul);
+    color: var(--branco);
+  }
+  .tabela-barracas thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .tabela-barracas thead th:first-child { border-radius: 6px 0 0 0; }
+  .tabela-barracas thead th:last-child  { border-radius: 0 6px 0 0; }
+  .tabela-barracas tbody tr {
+    border-bottom: 1px solid var(--borda);
+    transition: background 0.15s;
+  }
+  .tabela-barracas tbody tr:last-child { border-bottom: none; }
+  .tabela-barracas tbody tr:nth-child(even) { background: var(--cinza-claro); }
+  .tabela-barracas tbody tr:hover { background: var(--azul-claro); }
+  .tabela-barracas td {
+    padding: 10px 14px;
+    vertical-align: top;
+  }
+  .tabela-barracas td:first-child {
+    font-weight: 600;
+    color: var(--azul);
+    white-space: nowrap;
+  }
+  .num-barraca {
+    display: inline-block;
+    background: var(--azul-claro);
+    color: var(--azul);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .apoio-tag {
+    display: inline-block;
+    background: var(--verde-claro);
+    color: var(--verde);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  /* ── LIMPEZA ── */
+  .card-limpeza {
+    background: var(--amarelo);
+    border: 1px solid var(--amarelo-borda);
+    border-radius: 7px;
+    padding: 16px 20px;
+    margin-bottom: 9px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .card-limpeza .limpeza-item {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(240,192,64,0.4);
+  }
+  .card-limpeza .limpeza-item:last-child { border-bottom: none; }
+
+  /* ── CHAMADA FINAL ── */
+  .chamada-final {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: var(--azul);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--branco);
+  }
+  .chamada-final p {
+    font-family: var(--fonte-titulo);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 640px) {
+    .pagina { margin: 0; border-radius: 0; }
+    .cabecalho, .conteudo { padding-left: 20px; padding-right: 20px; }
+    .destaque-topo { grid-template-columns: 1fr; }
+    .destaque-item { border-right: none; border-bottom: 1px solid rgba(30,79,122,0.15); }
+    .tabela-barracas thead th:nth-child(2),
+    .tabela-barracas td:nth-child(2) { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <!-- CABEÇALHO -->
+  <div class="cabecalho">
+    <h1>📢 Informe Geral — Quermesse 2026</h1>
+    <p class="subtitulo">13 e 14 de junho · Espaço São Miguel</p>
+    <p class="intro">Coordenadores, seguem as orientações gerais para a organização das barracas. Cada ministério é responsável pela execução da sua área conforme a divisão definida.</p>
+  </div>
+
+  <!-- DESTAQUES -->
+  <div class="destaque-topo">
+    <div class="destaque-item">
+      <div class="destaque-label">Data</div>
+      <div class="destaque-valor">13 e 14 de junho</div>
+    </div>
+    <div class="destaque-item">
+      <div class="destaque-label">Local</div>
+      <div class="destaque-valor">Espaço São Miguel</div>
+    </div>
+    <div class="destaque-item">
+      <div class="destaque-label">Pagamento</div>
+      <div class="destaque-valor">100% via cartão recarga</div>
+    </div>
+  </div>
+
+  <div class="conteudo">
+
+    <!-- RESPONSABILIDADES GERAIS -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="icone">🔧</span> Responsabilidades Gerais</h2>
+      <ul class="lista">
+        <li>A organização completa da barraca — ornamentação, doações, vendas, descartáveis, limpeza etc. — é de responsabilidade do respectivo ministério.</li>
+        <li>A proposta é que o Instituto não tenha custos. Todo o resultado será fruto do empenho dos ministérios, visando lucro integral.</li>
+        <li>As vendas serão realizadas por meio de <strong>cartão recarregável</strong>, sob controle do Ministério de Eventos.</li>
+      </ul>
+    </div>
+
+    <!-- PRECIFICAÇÃO E SISTEMA -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="icone">💰</span> Precificação e Sistema</h2>
+      <ul class="lista">
+        <li>Cada ministério deverá definir os preços dos seus itens.</li>
+        <li>Enviar <strong>lista de produtos + valores</strong> até <strong>22/05</strong> para o Ministério de Eventos (para cardápio e sistema).</li>
+        <li>Sugestão: trabalhar com valores fechados — facilita a soma e a recarga.</li>
+        <li>Em 2026, <strong>todas as vendas serão via cartão recarga</strong>.</li>
+      </ul>
+      <span class="badge-prazo">📅 Prazo de envio: 22/05/2026</span>
+    </div>
+
+    <!-- DOAÇÕES E APOIO -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="icone">🤝</span> Doações e Apoio</h2>
+      <ul class="lista">
+        <li>Queridos coordenadores, para que possamos alcançar o êxito que todos desejamos, contamos com o empenho generoso de todos! As vendas da Quermesse devem ser fruto de doações e, para isso, precisamos buscar empresas e doadores que queiram nos apoiar. Cada contribuição, por menor que seja, faz toda a diferença. Caso seja necessário um ofício formal para facilitar a abordagem, o <strong>Ministério de Eventos</strong> providenciará com muito carinho, é só solicitar.</li>
+        <li>Caso tenha contato de possíveis doadores que possam ajudar outro ministério, alinhar diretamente com o coordenador responsável.</li>
+        <li>O <strong>Ministério São Lucas</strong> atuará exclusivamente como apoio.</li>
+      </ul>
+    </div>
+
+    <!-- ESTRUTURA E AMBIENTAÇÃO -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="icone">🎶</span> Estrutura e Ambientação</h2>
+      <ul class="lista">
+        <li>Teremos <strong>música ao vivo</strong> — sanfoneiro confirmado para sábado e domingo.</li>
+        <li>Usem referências (Google, Pinterest) e invistam na criatividade. A equipe de Eventos pode compartilhar ideias já pesquisadas.</li>
+        <li>O <strong>Ministério de Eventos</strong> está estudando a melhor forma de padronizar as barracas — o layout final será apresentado em breve.</li>
+        <li>Vale lembrar que estaremos em plena <strong>Copa do Mundo</strong>! Esse é um elemento precioso para a decoração e ambientação das barracas — caprichem nas cores, bandeiras e referências festivas. E um aviso especial: o <strong>jogo do Brasil será no sábado</strong>, então aproveitem esse clima para deixar o espaço ainda mais animado! 🇧🇷⚽</li>
+      </ul>
+    </div>
+
+    <!-- ALINHAMENTOS INTERNOS -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="icone">🧠</span> Alinhamentos Internos</h2>
+      <ul class="lista">
+        <li>Membros que participam de mais de um ministério devem ser alinhados entre os coordenadores para definição de atuação.</li>
+        <li>Nomes das barracas podem ser ajustados, desde que informados previamente para atualização no sistema.</li>
+      </ul>
+    </div>
+
+    <!-- DIVISÃO DAS BARRACAS -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="icone">🏕️</span> Divisão das Barracas</h2>
+      <table class="tabela-barracas">
+        <thead>
+          <tr>
+            <th>Ministério</th>
+            <th>Nº de Membros</th>
+            <th>Atividade / Produto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Catequese</td>
+            <td><span class="num-barraca">29</span></td>
+            <td>Brincadeiras infantis (pescaria, argolas, derruba lata etc.) + brindes simples</td>
+          </tr>
+          <tr>
+            <td>Jovem + Grupo Carlo Acutis</td>
+            <td><span class="num-barraca">30</span></td>
+            <td>Brincadeiras para jovens e adultos (argola, pescaria etc.)</td>
+          </tr>
+          <tr>
+            <td>Amigo EA</td>
+            <td><span class="num-barraca">16</span></td>
+            <td>Bingo / rifa / sorteios</td>
+          </tr>
+          <tr>
+            <td>Captação</td>
+            <td><span class="num-barraca">8</span></td>
+            <td>Bingo / rifa / sorteios</td>
+          </tr>
+          <tr>
+            <td>Eventos</td>
+            <td><span class="num-barraca">40</span></td>
+            <td>Estrutura geral + recarga de cartões + cobertura do evento</td>
+          </tr>
+          <tr>
+            <td>Brechó</td>
+            <td><span class="num-barraca">39</span></td>
+            <td>Crepe suíço</td>
+          </tr>
+          <tr>
+            <td>Santa Clara</td>
+            <td><span class="num-barraca">80</span></td>
+            <td>Espetinho (com farofa e vinagrete)</td>
+          </tr>
+          <tr>
+            <td>Caridade</td>
+            <td><span class="num-barraca">76</span></td>
+            <td>Caldinhos diversos</td>
+          </tr>
+          <tr>
+            <td>Missionário da Promessa</td>
+            <td>—</td>
+            <td>Itens de devoção</td>
+          </tr>
+          <tr>
+            <td>Comunicação</td>
+            <td><span class="num-barraca">55</span></td>
+            <td>Cobertura (foto/vídeo) + brincadeiras para adultos (tiro ao alvo, cadeia)</td>
+          </tr>
+          <tr>
+            <td>Música <em>(grupos somados)</em></td>
+            <td>—</td>
+            <td>Doces diversos (bolos de diversos recheios, brigadeiro, churros, maçã do amor, cocada, cookies, uva do amor etc.)</td>
+          </tr>
+          <tr>
+            <td>Som</td>
+            <td><span class="num-barraca">25</span></td>
+            <td>Som, iluminação e apoio técnico (em conjunto com Eventos) + atividade a ser designada em conjunto com o Ministério de Eventos para os dias do evento</td>
+          </tr>
+          <tr>
+            <td>Acolhida</td>
+            <td><span class="num-barraca">63</span></td>
+            <td>Cachorro-quente</td>
+          </tr>
+          <tr>
+            <td>Intercessão Missionária</td>
+            <td><span class="num-barraca">48</span></td>
+            <td>Comidas típicas + café + roleta premiada</td>
+          </tr>
+          <tr>
+            <td>Intercessão Permanente</td>
+            <td><span class="num-barraca">34</span></td>
+            <td>Comidas típicas + café + roleta premiada</td>
+          </tr>
+          <tr>
+            <td>São Lucas</td>
+            <td><span class="num-barraca">36</span></td>
+            <td>Apoio médico <span class="apoio-tag">apoio</span></td>
+          </tr>
+          <tr>
+            <td>Livraria</td>
+            <td><span class="num-barraca">50</span></td>
+            <td>Pastel</td>
+          </tr>
+          <tr>
+            <td>Liturgia</td>
+            <td><span class="num-barraca">31</span></td>
+            <td>Bebidas (água, refrigerante, sucos, gelo)</td>
+          </tr>
+          <tr>
+            <td>Benedictus / Hotelaria / Mídia do Fundador</td>
+            <td><span class="num-barraca">56</span></td>
+            <td>Venda de brinquedos para criança (led, shopee, bola de festa das neves), fogos (apenas traque e chuveiro sem fumaça) e produção de mídias</td>
+          </tr>
+          <tr>
+            <td>Irmãs Missionárias e Monges</td>
+            <td>—</td>
+            <td>Doces e materiais produzidos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- LIMPEZA -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="icone">🧹</span> Limpeza — Equipe Mista</h2>
+      <div class="card-limpeza">
+        <div class="limpeza-item">Cada barraca deverá disponibilizar <strong>4 pessoas</strong> (2 por dia).</div>
+        <div class="limpeza-item">Responsáveis pela limpeza <strong>durante e ao final</strong> do evento.</div>
+        <div class="limpeza-item">Um membro por dia será responsável por recolher e levar o lixo à área externa, só podendo se ausentar após concluída a missão.</div>
+      </div>
+    </div>
+
+    <!-- OBSERVAÇÃO FINAL -->
+    <div class="secao">
+      <h2 class="secao-titulo"><span class="icone">💡</span> Observação Final</h2>
+      <ul class="lista">
+        <li>Os coordenadores são encorajados a trazer ideias e brincadeiras que incrementem sua barraca ou que possam ser executadas como atrativo adicional para o público. Criatividade e iniciativa são sempre bem-vindas!</li>
+        <li>Dúvidas, sugestões ou novas ideias: falar no privado com o <strong>Ministério de Eventos</strong> para avaliação de viabilidade.</li>
+      </ul>
+    </div>
+
+    <!-- CHAMADA FINAL -->
+    <div class="chamada-final">
+      <p>🎯 Vamos bater 150% da meta da Campanha do Mês!</p>
+      <p style="margin-top: 16px; font-size: 15px; font-weight: 400; font-style: italic; opacity: 0.9;">Cada tarefa é uma peça do nosso quebra-cabeça.<br>Quando todos fazem a sua parte, o resultado glorifica a Deus!</p>
+      <p style="margin-top: 12px; font-size: 14px; opacity: 0.75;">Deus abençoe — Vamos juntos! 🙏</p>
+    </div>
+
+  </div><!-- /conteudo -->
+</div><!-- /pagina -->
+</body>
+</html>
